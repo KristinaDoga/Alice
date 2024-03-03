@@ -1,0 +1,258 @@
+//Семантика
+body{
+   display: flex;
+   flex-direction: column;
+}
+.global-wrapper{
+   overflow: hidden;
+}
+body, select, a{
+  font-size: 16px;
+  line-height: 26px;
+  color: $default-text;
+  @include quicksand-500;
+}
+html, body {
+height: 100%;
+}
+main {
+flex-grow: 1;
+}
+header, footer {
+flex: 0 0 auto;
+}
+.section{
+@include section-indent;
+}
+
+//Общие стили
+.container{
+   margin: 0 auto;
+   max-width: 1200px;
+   padding: 0 15px;
+}
+.disable{
+   display: none !important;
+}
+
+//Стили на детали
+.title {
+   @include roboto-700;
+   @include adaptive-font(30,22);
+   line-height: 1;
+   color: $wine;
+   text-transform: uppercase;
+}
+.pagination {
+display: flex;
+margin: 40px 0;
+justify-content: center;
+&__arrow{
+   
+   position: relative;
+}
+&__arrow::after {
+   position: absolute;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   content: '';
+   width: 6px;
+   height: 11px;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+&__prev{
+   padding-left: 20px;
+   &::after {
+      background-image: url('../images/icons/paginatioin-angle-left.svg');
+      left: 0;
+   }
+}
+
+&__next{
+   padding-right: 20px;
+   &::after {
+      background-image: url('../images/icons/paginatioin-angle-right.svg');
+      right: 0;
+   }
+}
+
+&__pages {
+   display: flex;
+   gap: 20px;
+}
+
+&__link--active{
+   color: $wine;
+}
+}
+.default-btn{
+display: inline-block;
+background-color: $wine;
+@include roboto-400;
+font-size: 16px;
+line-height: 1;
+text-transform: uppercase;
+color: $light-gray;
+border: 1px solid transparent;
+transition: all .3s;
+&:hover{
+border: 1px solid $wine;
+
+   color: $wine;
+   background: $light-gray;
+}
+}
+.undefault-btn{
+display: inline-block;
+
+@include roboto-400;
+font-size: 16px;
+line-height: 1;
+text-transform: uppercase;
+
+border: 1px solid $wine;
+transition: all .3s;
+color: $wine;
+   background: $light-gray;
+&:hover{
+
+background-color: $wine;
+color: $light-gray;
+}
+}
+.slick-arrow{
+background: transparent;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+display: block;
+width: 30px;
+height: 30px;
+
+font-size: 0;
+
+z-index: 10;
+svg{
+   width: 50px;
+   height: 50px;
+}
+}
+.slick-next{
+right: 0;
+background-image: url('../images/icons/paginatioin-angle-right.svg');
+
+}
+.slick-prev {
+left: 0;
+background-image: url('../images/icons/paginatioin-angle-left.svg');
+
+}
+.social {
+   display: flex;
+   column-gap: 20px;
+   &__img {
+      height: 20px;
+   }
+   &__img path {
+      fill: $light-gray;
+      stroke: $light-gray;
+      transition: all .3s ease;
+   }
+   &__link :hover {
+      path{
+         fill: $wine;
+      stroke: $wine;
+      }
+   }
+}
+.data-box {
+max-width: 45%;
+display: flex;
+justify-content: space-around;
+background: $light-gray;
+gap: 10px;
+padding: 10px;
+      p{
+         color: $default-text;
+      }
+   &__item{
+      padding-left: 30px;
+      position: relative;
+      &::before{
+         position: absolute;
+         content: '';
+         top: 50%;
+         transform: translateY(-50%);
+         left: 0px;
+         width: 20px;
+         height: 20px;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+   }
+   &__date::before {
+      background-image: url('../images/icons/clock.svg');
+   }
+
+   &__comments::before {
+      background-image: url('../images/icons/comment.svg');
+   }
+}
+.img-box {
+   width: 100%;
+   height: 500px;
+   overflow: hidden;
+   position: relative;
+   &__data-box {
+
+   }
+   &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+}
+.breadcrumbs {
+   margin: 20px 0;
+   display: flex;
+   justify-content: center;
+   position: relative;
+   z-index: 2;
+   &__li{
+      position: relative;
+      padding-right: 25px;
+      &:last-child{
+         color: $wine;
+         padding-right: 0;
+         &::after{
+         background-image: none;
+         }
+      }
+      &::after{
+         position: absolute;
+         content: '';
+         top: 50%;
+         transform: translateY(-50%);
+         right: 5px;
+         width: 14px;
+         height: 14px;
+         background-image: url('../images/icons/angle_right.svg');
+         background-repeat: no-repeat;
+         background-position: center center;
+         background-size: cover;
+       }
+    }
+   &__link {
+     @include quicksand-500;
+     line-height: 1.2;
+     color: $default-text;
+     @include adaptive-font(25,14);
+   }
+   } 
